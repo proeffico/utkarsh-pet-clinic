@@ -20,7 +20,7 @@ pipeline {
 			steps {
 				timeout(time: 1, unit: 'HOURS'){
 				echo "Building image..."
-				sh "oc apply -f cicd/build-config.xml"
+				sh "oc apply -f cicd/Build-Config.xml"
 				sh "oc start-build buildconfig/aksumjava --from-file=target/utk-pet-clinic-0.0.1-SNAPSHOT.jar"
 				}
 			}
@@ -29,7 +29,7 @@ pipeline {
 		stage('Deploy Service') {
 			steps {
 				echo "Deploying service..."
-				sh "oc apply -f cicd/deployment.xml"
+				sh "oc apply -f cicd/Deployment.xml"
 			}
 		}
 	}
