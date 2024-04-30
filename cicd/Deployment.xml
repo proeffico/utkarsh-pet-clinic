@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: utkarsh-pet-clinic-git
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: utkarsh-pet-clinic-git
+  template:
+    metadata:
+      labels:
+        app: utkarsh-pet-clinic-git
+    spec:
+      containers:
+      - name: utkarsh-pet-clinic-git
+        image: image-registry.openshift-image-registry.svc:5000/jenkins/utkarsh-pet-clinic-git
+        ports:
+        - containerPort: 8080
+        resources:
+          requests:
+            cpu: "250m" 
+            memory: "512Mi" 
+          limits:
+            cpu: "1000m"
+            memory: "1024Mi"
