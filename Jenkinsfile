@@ -10,7 +10,7 @@ pipeline {
 				sh "mvn --version"
 				sh "java --version"
 				sh "mvn clean package"
-				sh "ls -lrt target/DecisionEngine-v1.1.jar"
+				sh "ls -lrt target/"
 			}
 		}
 
