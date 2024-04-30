@@ -1,0 +1,29 @@
+kind: BuildConfig
+apiVersion: build.openshift.io/v1
+metadata:
+  name: utkarsh-pet-clinic-git
+  labels:
+    app: utkarsh-pet-clinic-git
+spec:
+  resources:
+    requests: 
+      cpu: "250m" 
+      memory: "512Mi" 
+    limits:
+      cpu: "1000m"
+      memory: "1024Mi"
+  output:
+    to:
+      kind: ImageStreamTag
+      name: 'utkarsh-pet-clinic-git:latest'
+  strategy:
+    type: Source
+    sourceStrategy:
+      from:
+        kind: ImageStreamTag
+        namespace: openshift
+        name: 'java:openjdk-17-ubi8'
+  source:
+    type: Git
+    uri: 'https://github.com/Rytnix/utkarsh-pet-clinic.git'
+    contextDir: /
