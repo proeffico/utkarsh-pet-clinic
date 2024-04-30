@@ -21,7 +21,7 @@ pipeline {
 				timeout(time: 1, unit: 'HOURS'){
 				echo "Building image..."
 				sh "oc apply -f cicd/build-config.xml"
-				sh "oc start-build buildconfig/aksumjava --from-file=target/DecisionEngine-v1.1.jar"
+				sh "oc start-build buildconfig/aksumjava --from-file=target/utk-pet-clinic-0.0.1-SNAPSHOT.jar"
 				}
 			}
 		}
