@@ -12,7 +12,7 @@ public class checkController {
     @GetMapping("/hello")
     @ResponseBody
     public String hello(){
-        return "<h1>Hello World!!!</h1>";
+        return "<h1>Hello World!everything is working fine!!</h1>";
     }
 
 
